@@ -21,6 +21,11 @@ pip install -r requirements.txt
 
 cp /vagrant/nginx.conf /etc/nginx/sites-available/default
 cp /vagrant/tracker?.xml /etc/uwsgi/apps-available
+(cd /etc/uwsgi/apps-available;
+	for i in tracker?.xml; do
+		ln -s ../apps-available/$i ../apps-enabled/$i
+	done
+)
 
 service uwsgi restart
 service nginx restart
