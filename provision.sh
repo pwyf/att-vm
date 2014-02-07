@@ -12,6 +12,13 @@ apt-get install --yes \
     python2.7-dev \
     libxslt1-dev
 
+cd /vagrant
+virtualenv ve
+cd /vagrant/ve
+source bin/activate
+cd /vagrant/IATI-Data-Quality
+pip install -r requirements.txt
+
 cp /vagrant/nginx.conf /etc/nginx/sites-available/default
 cp /vagrant/tracker?.xml /etc/uwsgi/apps-available
 
