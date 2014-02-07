@@ -11,3 +11,10 @@ apt-get install --yes \
     postgresql-server-dev-9.1 \
     python2.7-dev \
     libxslt1-dev
+
+cp /vagrant/nginx.conf /etc/nginx/sites-available/default
+cp /vagrant/tracker?.xml /etc/uwsgi/apps-available
+
+service uwsgi restart
+service nginx restart
+
